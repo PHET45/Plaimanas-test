@@ -5,20 +5,88 @@ body{
     margin: 0;
     padding: 0;
 }
-
+header{
+    position: fixed;
+    width: 100%;
+    padding: 0 32px;
+    background-color: #fff;
+}
 nav{
-    background-color: #FFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-left {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+.nav-center {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45px;
-    column-gap:100px
+}
+
+.nav-menu {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    color: #222;
+    font-weight: 400;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+.nav-cart {
+    font-size: 20px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: #222;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: 0.3s;
 }
 
 ul{
     display: flex;
     list-style: none;
     gap: 20px;
+}
+
+li {
+    display: inline;
 }
 
 .button-right{
@@ -34,4 +102,44 @@ ul{
 
 button{
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+    }
+    .button-right {
+        flex-direction: column;
+    }
+    ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-center {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 0 10px;
+    }
+    .nav-right {
+        gap: 10px;
+    }
+    .nav-left {
+        font-size: 13px;
+    }
 }
